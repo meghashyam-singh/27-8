@@ -9,7 +9,7 @@ WORKDIR /app
 COPY --from=builder /app /app
 RUN addgroup -S roboshop && \
     adduser -S roboshop -G roboshop && \
-    chown -R robosho:roboshop /app
+    chown -R roboshop:roboshop /app
 ENV REDIS_HOST="redis-cont" \
     CATALOGUE_HOST="catalogue-cont" \
     CATALOGUE_PORT="8080"
