@@ -8,7 +8,7 @@ FROM node:20-alpine3.22
 WORKDIR /app
 COPY --from=builder /app /app
 RUN addgroup -S roboshop && \
-    add user -S roboshop -G roboshop && \
+    adduser -S roboshop -G roboshop && \
     chown -R roboshop:roboshop /app
 ENV MONGO=true \
     REDIS_URL="redis://redis-cont:6379" \
