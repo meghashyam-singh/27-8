@@ -2,4 +2,4 @@ deployment:
   image: meghashyam792/roboshop
   imagetag: cart
 service:
-  type: clsuterIP
+  type: ClusterIP
