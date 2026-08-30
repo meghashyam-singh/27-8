@@ -20,20 +20,20 @@ metadata:
   name: payment
   namespace: roboshop
   labels:
-    projetc: roboshop
+    project: roboshop
     tier: backend
     component: payment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      projetc: roboshop
+      project: roboshop
       tier: backend
       component: payment
   template:
     metadata:
       labels:
-        projetc: roboshop
+        project: roboshop
         tier: backend
         component: payment
     spec:
