@@ -1,5 +1,5 @@
 statefulset:
-  image: meghahsyam792/roboshop
+  image: meghashyam792/roboshop
   imagetag: rabbitmq
 service:
   type: ClusterIP
