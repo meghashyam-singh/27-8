@@ -130,7 +130,7 @@ spec:
       volumes:
         - name: frontend-volume
           configMap:
-            name: forntend-config
+            name: frontend-config
 
 ---
 apiVersion: v1
