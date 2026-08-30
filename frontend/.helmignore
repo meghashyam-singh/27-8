@@ -1,0 +1,7 @@
+images/
+css/
+js/
+media/
+*.html
+nginx.conf
+Dockerfile
