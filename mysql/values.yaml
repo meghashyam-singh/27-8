@@ -2,4 +2,4 @@ statefulset:
   image: meghashyam792/roboshop
   imagetag: mysql
 service:
-  type: clusterIP
+  type: ClusterIP

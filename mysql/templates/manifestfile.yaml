@@ -51,25 +51,25 @@ spec:
           ports:
             - containerPort: 3306
               name: mysql-port
-          resources:
-            requests:
-              cpu: "200m"
-              memory: "128Mi"
-            limits:
-              cpu: "500m"
-              memory: "512Mi"
-          readinessProbe:
-            tcpSocket:
-              port: mysql-port
-            initialDelaySeconds: 50
-            periodSeconds: 50
-            timeoutSeconds: 20
-          livenessProbe:
-            tcpSocket:
-              port: mysql-port
-            initialDelaySeconds: 50
-            periodSeconds: 50
-            timeoutSeconds: 20
+          # resources:
+          #   requests:
+          #     cpu: "200m"
+          #     memory: "128Mi"
+          #   limits:
+          #     cpu: "500m"
+          #     memory: "512Mi"
+          # readinessProbe:
+          #   tcpSocket:
+          #     port: mysql-port
+          #   initialDelaySeconds: 50
+          #   periodSeconds: 50
+          #   timeoutSeconds: 20
+          # livenessProbe:
+          #   tcpSocket:
+          #     port: mysql-port
+          #   initialDelaySeconds: 50
+          #   periodSeconds: 50
+          #   timeoutSeconds: 20
           volumeMounts:
             - name: mysql-pvc
               mountPath: /var/lib/mysql
