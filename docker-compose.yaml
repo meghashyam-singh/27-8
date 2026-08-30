@@ -1,0 +1,117 @@
+version: '3.9'
+services:
+  mongodb:
+    build: ./mongodb
+    container_name: mongodb-cont
+    ports:
+      - "27017:27017"
+    networks:
+      - roboshop
+    volumes:
+      - mongodb-volume:/data/db
+    env_file:
+      - mongodb_env_file
+    cpus: 
+    mem_limit:
+  redis:
+    build: ./redis
+    container_name: redis-cont
+    ports:
+      - "6379:6379"
+    networks:
+      - roboshop
+    volumes:
+      - redis-volume:/data
+    env_file:
+      - redis_env_file
+  mysql:
+    build: ./mysql
+    container_name: mysql-cont
+    ports:
+      - "3306:3306"
+    networks:
+      - roboshop
+    volumes:
+      - mysql-volume:/var/lib/mysql
+    env_file:
+      - mysql_env_file
+  rabbitmq:
+    build: ./rabbitmq
+    container_name: rabbitmq-cont
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - roboshop
+    volumes:
+      - rabbitmq-volume:/var/lib/rabbitmq
+    env_file:
+      - rabbitmq_env_file
+  catalogue:
+    build: ./catalogue
+    container_name: catalogue-cont
+    ports:
+      - "1111:8080"
+    networks:
+      - roboshop
+    env_file:
+      - catalogue_env_file
+    depends_on:
+      - mongodb
+  user:
+    build: ./user
+    container_name: user-cont
+    ports:
+      - "2222:8080"
+    networks:
+      - roboshop
+    env_file:
+      - user_env_file
+  cart:
+    build: ./cart
+    container_name: cart-cont
+    ports:
+      - "3333:8080"
+    networks:
+      - roboshop
+    env_file:
+      - cart_env_file
+  shipping:
+    build: ./shipping
+    container_name: shipping-cont
+    ports:
+      - "4444:8080"
+    networks:
+      - roboshop
+    env_file:
+      - shipping_env_file
+    depends_on:
+      - mysql
+  payment:
+    build: ./payment
+    container_name: payment-cont
+    ports:
+      - "5555:8080"
+    networks:
+      - roboshop
+    env_file:
+      - payment_env_file
+    depends_on:
+      - rabbitmq
+  frontend:
+    build: ./frontend
+    container_name: frontend-cont
+    ports:
+      - "9999:80"
+    networks:
+      - roboshop
+    env_file:
+      - frontend_env_file
+networks:
+  roboshop:
+    driver: bridge
+volumes:
+  mongodb-volume:
+  redis-volume:
+  mysql-volume:
+  rabbitmq-volume:
