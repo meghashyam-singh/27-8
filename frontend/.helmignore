@@ -3,5 +3,4 @@ css/
 js/
 media/
 *.html
-nginx.conf
 Dockerfile
