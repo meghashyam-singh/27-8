@@ -5,7 +5,7 @@ metadata:
   name: user-config
   namespace: roboshop
 data:
-  MONGO: true
+  MONGO: "true"
   REDIS_URL: "redis://redis-service:6379"
   MONGO_URL: "mongodb://mongodb-service:27017/users"
 
