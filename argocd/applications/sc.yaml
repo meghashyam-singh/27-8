@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: namespace-application
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/meghashyam-singh/27-8.git
+    targetRevision: main
+    path: storage-classes
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
