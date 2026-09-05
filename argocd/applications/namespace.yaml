@@ -6,7 +6,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: roboshop
+  project: default
   source:
     repoURL: https://github.com/meghashyam-singh/27-8.git
     targetRevision: main
