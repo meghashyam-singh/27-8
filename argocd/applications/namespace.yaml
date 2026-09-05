@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/meghashyam-singh/27-8.git
     targetRevision: main
-    path: namespaces
+    path: argocd/namespaces
   destination:
     server: https://kubernetes.default.svc
     namespace: default
